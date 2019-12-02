@@ -1,0 +1,7 @@
+{
+  "name": "rock-paper-scissors",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
