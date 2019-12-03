@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="end">
+      <div class="flex-container header-content">
+        <ion-icon name="wallet"></ion-icon>
+        <span>{{collectedPoint}}</span>
+      </div>
+    </ion-buttons>
+    <ion-title>
+      RPS Game
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="io-padding">
+    <ion-card>
+      <ion-card-content>
+        <h2>Collected Points: {{collectedPoint}}</h2>
+        <br>
+        <h3>Equivalent Money: ${{pointsToCash}} </h3>
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-card *ngIf="!success">
+      <ion-card-content>
+        <div *ngIf="pointsToCash < minPointsToCash " style="text-align: center; color: firebrick;">
+          You need to have minimum of ${{minPointsToCash}} to Redeem
+        </div>
+        <div style="color: #999999;" *ngIf="pointsToCash >= minPointsToCash ">
+          <ion-list>
+            <ion-list-header>Fill in the form below to redeem the points</ion-list-header>
+
+            <ion-item>
+              <ion-label>Payment Method</ion-label>
+              <ion-select placeholder="Select One" [(ngModel)]="method">
+                <ion-select-option value="Paypal">PayPal</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+
+          <ion-item>
+            <ion-label position="floating">Payment address</ion-label>
+            <ion-input [(ngModel)]="address"></ion-input>
+          </ion-item>
+          <br>
+          <ion-button (click)="openModal()" color="dark" expand="block">Redeem</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="success">
+      <ion-card-content>
+        <div style="text-align: center;color: blue;">
+          <h2>Redeem Suceessful</h2>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</ion-content>

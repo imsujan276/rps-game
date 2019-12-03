@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Redeem Confirmation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="ion-padding">
+    <p> Redeem Amount: ${{data.collectedPoint}}</p>
+    <p> Redeem Method: {{data.method}}</p>
+    <p> Redeem Address: {{data.address}}</p>
+    <br>
+          <ion-button (click)="confirm()" color="dark" expand="block">Confirm Redeem and Proceed</ion-button>
+
+    <br>
+    <span style="font-size: 12px;">
+    You should send an email in the next step to redeem the points. The redeem will be rewarded withn one week from redeem request
+  </span>
+</div>
+</ion-content>
