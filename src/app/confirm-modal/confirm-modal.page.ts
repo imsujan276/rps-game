@@ -32,12 +32,12 @@ export class ConfirmModalPage implements OnInit {
     await this.admobFreeService.RewardVideoAd()
     if(this.ss){
       let email = {
-        to: 'info@sujangainju.com.np',
+        to: 'admin@sujangainju.com.np',
         attachments: [
           'file://'+this.ss
         ],
         subject: 'RPS withdraw request',
-        body: 'RPS withdraw request',
+        body: 'Message',
         isHtml: true
       }
       this.emailComposer.isAvailable().then(async (available: boolean) =>{
