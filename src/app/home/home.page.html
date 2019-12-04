@@ -1,48 +1,42 @@
 <ion-header>
-  <ion-toolbar mode="ios"  color="dark">
-
-      <ion-buttons slot="end">
-        <div class="flex-container header-content">
-            <ion-icon name="wallet"></ion-icon>
-            <span>{{collectedPoint}}</span>
-        </div>
-      </ion-buttons>
-   
-
-         
+  <ion-toolbar mode="ios" color="dark">
+    <ion-buttons slot="end">
+      <div class="flex-container header-content">
+        <ion-icon name="wallet"></ion-icon>
+        <span>{{collectedPoint}}</span>
+      </div>
+    </ion-buttons>
     <ion-title>
       RPS Game
     </ion-title>
-
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
+  <div class="" style="padding-top: 5px;">
     <ion-grid>
 
       <ion-row>
         <ion-col>
-          <ion-card style="min-height: 175px; max-height: 175px;">
+          <ion-card style="min-height: 150px; max-height: 150px;">
             <ion-card-content>
               <div class="content1">
                 <h2> Bot</h2>
                 <button mat-fab color="accent" class="score score-bot">
                   {{ scores[1] }}
                 </button>
-
               </div>
 
               <div *ngIf="enemySelected == -1" class="flex-container flex-center">
-                <ion-img style="width:103px" *ngIf="randomSelected === 0" src="assets/images/rock.png"></ion-img>
-                <ion-img style="width:103px" *ngIf="randomSelected === 1" src="assets/images/paper.png"></ion-img>
-                <ion-img style="width:103px" *ngIf="randomSelected === 2" src="assets/images/scissor.png"></ion-img>
+                <ion-img style="width:95px" *ngIf="randomSelected === 0" src="assets/images/rock.png"></ion-img>
+                <ion-img style="width:95px" *ngIf="randomSelected === 1" src="assets/images/paper.png"></ion-img>
+                <ion-img style="width:95px" *ngIf="randomSelected === 2" src="assets/images/scissor.png"></ion-img>
               </div>
 
               <div *ngIf="enemySelected !== -1" class="flex-container flex-center">
-                <ion-img style="width:103px" *ngIf="enemySelected === 0" src="assets/images/rock.png"></ion-img>
-                <ion-img style="width:103px" *ngIf="enemySelected === 1" src="assets/images/paper.png"></ion-img>
-                <ion-img style="width:103px" *ngIf="enemySelected === 2" src="assets/images/scissor.png"></ion-img>
+                <ion-img style="width:95px" *ngIf="enemySelected === 0" src="assets/images/rock.png"></ion-img>
+                <ion-img style="width:95px" *ngIf="enemySelected === 1" src="assets/images/paper.png"></ion-img>
+                <ion-img style="width:95px" *ngIf="enemySelected === 2" src="assets/images/scissor.png"></ion-img>
               </div>
 
             </ion-card-content>
@@ -51,33 +45,33 @@
       </ion-row>
 
       <ion-row>
-          <ion-col>
-            <div style="height:30px">
-                <div *ngIf="!loading && isResultShow" class="flex-container flex-center" style="flex-direction: column">
-                  <div [ngSwitch]="theResult">
-                    <ng-template [ngSwitchCase]="0">
-                      <h1 style="margin-top: 0;"> You WON! </h1>
-                    </ng-template>
-                    <ng-template [ngSwitchCase]="1">
-                      <h1 style="margin-top: 0;"> You LOSE. </h1>
-                    </ng-template>
-                    <ng-template [ngSwitchCase]="2">
-                      <h1 style="margin-top: 0;">It's a TIE! </h1>
-                    </ng-template>
-                    <ng-template ngSwitchDefault> </ng-template>
-                  </div>
-                </div>
-                <div class="flex-container flex-center" *ngIf="loading">
-                  <ion-spinner></ion-spinner>
-                </div>
+        <ion-col>
+          <div style="height:15px">
+            <div *ngIf="!loading && isResultShow" class="flex-container flex-center" style="flex-direction: column">
+              <div [ngSwitch]="theResult">
+                <ng-template [ngSwitchCase]="0">
+                  <h3 style="margin-top: 0;"> You WON! </h3>
+                </ng-template>
+                <ng-template [ngSwitchCase]="1">
+                  <h3 style="margin-top: 0;"> You LOSE. </h3>
+                </ng-template>
+                <ng-template [ngSwitchCase]="2">
+                  <h3 style="margin-top: 0;">It's a TIE! </h3>
+                </ng-template>
+                <ng-template ngSwitchDefault> </ng-template>
+              </div>
             </div>
-          </ion-col>
-        </ion-row>
+            <div class="flex-container flex-center" *ngIf="loading">
+              <ion-spinner></ion-spinner>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
 
 
       <ion-row>
         <ion-col>
-          <ion-card>
+          <ion-card style="min-height: 175px; max-height: 175px;">
             <ion-card-content>
               <div class="content1">
                 <h2> You</h2>
@@ -86,12 +80,15 @@
                 </button>
               </div>
 
-              <h3> Choose your weapon: </h3>
+              <span> Choose your weapon: </span>
               <br>
               <div class="content2">
-                <ion-img [ngClass]="playerSelected == 0 ? 'selectedPlayerItem' : ''" (click)="pick(0)" src="assets/images/rock.png"></ion-img>
-                <ion-img [ngClass]="playerSelected == 1 ? 'selectedPlayerItem' : ''" (click)="pick(1)" src="assets/images/paper.png"></ion-img>
-                <ion-img [ngClass]="playerSelected == 2 ? 'selectedPlayerItem' : ''" (click)="pick(2)" src="assets/images/scissor.png"></ion-img>
+                <ion-img style="width:95px" [ngClass]="playerSelected == 0 ? 'selectedPlayerItem' : ''" (click)="pick(0)"
+                  src="assets/images/rock.png"></ion-img>
+                <ion-img style="width:95px" [ngClass]="playerSelected == 1 ? 'selectedPlayerItem' : ''" (click)="pick(1)"
+                  src="assets/images/paper.png"></ion-img>
+                <ion-img style="width:95px" [ngClass]="playerSelected == 2 ? 'selectedPlayerItem' : ''" (click)="pick(2)"
+                  src="assets/images/scissor.png"></ion-img>
 
               </div>
             </ion-card-content>
@@ -99,7 +96,7 @@
         </ion-col>
       </ion-row>
 
-      
+
 
     </ion-grid>
   </div>
